@@ -1,0 +1,71 @@
+:root{
+    --text:#ff7a1a;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#050505;
+color:var(--text);
+font-family:monospace;
+height:100vh;
+overflow:hidden;
+}
+
+/* scanline effect */
+.scanline{
+position:fixed;
+inset:0;
+background:repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 1px,
+    transparent 2px,
+    transparent 4px
+);
+pointer-events:none;
+opacity:0.2;
+}
+
+/* terminal */
+.terminal{
+height:100vh;
+display:flex;
+flex-direction:column;
+padding:20px;
+}
+
+/* output */
+#output{
+flex:1;
+overflow-y:auto;
+white-space:pre-wrap;
+line-height:1.5;
+}
+
+/* input */
+.input-line{
+display:flex;
+gap:10px;
+align-items:center;
+border-top:1px solid rgba(255,122,26,0.2);
+padding-top:10px;
+}
+
+.prefix{
+color:#ff7a1a;
+}
+
+input{
+flex:1;
+background:none;
+border:none;
+outline:none;
+color:var(--text);
+font-family:monospace;
+font-size:16px;
+}
