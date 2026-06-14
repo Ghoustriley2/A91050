@@ -1,0 +1,89 @@
+:root{
+    --text:#ff7a1a;
+    --bg:#050505;
+}
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html, body{
+height:100%;
+background:var(--bg);
+overflow:hidden;
+font-family:monospace;
+-webkit-text-size-adjust:100%;
+touch-action: manipulation;
+}
+
+/* scanlines */
+.scanline{
+position:fixed;
+inset:0;
+background:repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 1px,
+    transparent 3px,
+    transparent 5px
+);
+opacity:0.2;
+pointer-events:none;
+}
+
+/* terminal wrapper */
+.terminal{
+height:100%;
+display:flex;
+flex-direction:column;
+padding:12px;
+padding-bottom: max(12px, env(safe-area-inset-bottom));
+color:var(--text);
+}
+
+/* output */
+#output{
+flex:1;
+overflow-y:auto;
+white-space:pre-wrap;
+word-break:break-word;
+line-height:1.4;
+font-size:14px;
+}
+
+/* input line */
+.input-line{
+display:flex;
+align-items:center;
+gap:8px;
+border-top:1px solid rgba(255,122,26,0.25);
+padding-top:10px;
+}
+
+.prefix{
+color:var(--text);
+}
+
+input{
+flex:1;
+background:none;
+border:none;
+outline:none;
+
+color:var(--text);
+font-family:monospace;
+font-size:16px;
+
+/* IMPORTANT for Android */
+caret-color: var(--text);
+}
+
+/* prevent zoom on focus (Android Chrome fix) */
+@media screen and (max-width: 768px){
+input{
+font-size:16px;
+}
+}
