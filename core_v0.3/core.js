@@ -124,6 +124,7 @@ input.addEventListener("keydown", (e) => {
             print(`
 COMMANDS:
 help
+color
 info
 nano <file>
 read
